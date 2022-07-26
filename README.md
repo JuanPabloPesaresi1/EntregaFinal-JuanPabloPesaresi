@@ -1,25 +1,46 @@
 # Entrega1_PesaresiJuanPablo
+CineYa! - Entrega final de CoderHouse 
 
-Primero ingresar python .\manage.py runserver
+Nombre: Juan Pablo Pesaresi
 
-Luego dirigite a esta url para empezar a ver el proyecto http://127.0.0.1:8000/appcoder/
+Para iniciar el proyecto: python ./manage.py runserver
 
-Para entrar a la parte de admin hay 2 usuarios : admin-admin o juan-juan1234 http://127.0.0.1:8000/admin/
+VISTAS
 
-En la pagina principal se encuentran las personas ingresadas que estan en el BD y abajo un boton que dice "Añadir Personas" que te manda al formulario para ingresar personas
+Inicio :http://127.0.0.1:8000/appcoder/inicio/
 
-Dentro del formulario (http://127.0.0.1:8000/appcoder/formulario_personas/) para ingresar personas se encuntran 4 campos que tenes que completar para añadir una persona al BD, cuando añadis te manda a la pagina de personas
+Tienda :http://127.0.0.1:8000/appcoder/tienda/productos/
 
-Luego en la pesteña de Peliculas (http://127.0.0.1:8000/appcoder/peliculas/) se encuentran las peliculas que estan en BD  y abajo un boton que dice "Añadir Peliculas" que te manda al formulario para ingresar nuevas peliculas
+Catalogo :http://127.0.0.1:8000/appcoder/catalogo/peliculas/
 
-Dentro del formulario http://127.0.0.1:8000/appcoder/formulario_peliculas/ para ingresar peliculas se encuentran 3 campos que tenes que completar para añadir una pelicula al BD, cuando añadis te manda a la pagina de peliculas
+Contacto :http://127.0.0.1:8000/appcoder/contacto/
 
-Luego en la pestaña de Asientos (http://127.0.0.1:8000/appcoder/asientos/) se encuentran los asientos reservados que estan en BD y abajo un boton que dice "Reserva Asiento" que te manda al formulario para reserver asientos
+Nosotros :http://127.0.0.1:8000/appcoder/about/
 
-Dentro del formulario (http://127.0.0.1:8000/appcoder/butacas/) se encuentran se encuentran 3 campos que tenes que completar para reservar y guardan el BD, cuando añadis te manda a la pagina de asientos
+CRUD
+En esta pagina los usuarios pueden registrarse/inicar sesion/editar perfil, visualizar los productos y peliculas,en cambio, los usuarios staff/superuser pueden eliminar - editar elementos de la base de datos
 
-Y por el otro lado hay un buscador con el nombre "Buscar Pelicula" donde podes ingresar alguna letra y te tira la lista de pelicuals que contengan esa letra ( siempre y cuando este en el BD)
-(http://127.0.0.1:8000/appcoder/busqueda_pelicula/)
+Los usuarios pueden:
 
-(La secciono contacto esta sin terminar)
+Registrarse - Iniciar Sesion - Editar Perfil
+Agregar, editar y eliminar su avatar en el apartado de editar perfil
+Visualizar la tienda/productos
+Visualizar el catalogo/peliculas
+Visualizar la sesion Contacto
+Visualizar la sesion Nosotros
+
+
+Los usuarios staff pueden:
+
+Agregar, editar y eliminar su avatar en el apartado de editar perfil
+Crear, editar, visualizar y eliminar los productos de la tienda
+Crear, editar, visualizar y eliminar las peliculas del catalogo
+Tienen acceso al panel de administrador
+
+
+UNIT TEST
+Aca estan los casos de prueba de la pagina: https://docs.google.com/spreadsheets/d/1qmlhtxluiuT0zX2RF9-TsoGGmz5rKyvuzYU170CCdOw/edit?usp=sharing
+
+VIDEO DE PRUEBA
+https://www.youtube.com/watch?v=1ppB2_5ecjM
 
