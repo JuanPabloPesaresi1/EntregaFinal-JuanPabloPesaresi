@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Inicio - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+<section class="sector" style="display: flex;justify-content:center;">
+    <img class="fondo"  src="{% static 'assets/FONDO.jpg' %}" alt="">
+</section>
+<section  style="">
+        <div class="bloque-contenedor">
+            <div class="noticia2 left">
+                <div class="imagenNoticia">
+                    <img style="border-radius: 2%;" src="{% static 'assets/355_img1.jpg' %}" alt="">
+                </div>
+                <p class="texto">
+                    Para todos los amantes del cine, llegó CINEYA!, el sitio donde vas a poder encontrar todos los productos oficiales de tus personajes y películas preferidos
+                </p>
+                {% if user.is_authenticated %}
+                <a class="leerMas" href="{% url 'tienda' %}">Ver Tienda</a>
+                {% endif %}
+            </div>
+            <div class="noticia2 left">
+                <div class="imagenNoticia">
+                    <img style="border-radius: 2%;" src="{% static 'assets/pelicula.jpg' %}" alt="">
+                </div>
+                <p class="texto">
+                    Aqui puedes ver todo nuestro catalogo que tenemos disponible para usted! Ya sea para niños como para adultos
+                </p>
+                {% if user.is_authenticated %}
+                <a class="leerMas" href="{% url 'peliculas' %}">Ver Catalogo</a>
+                {% endif %}
+            </div>
+            <div class="noticia2 derecha">
+                <div class="imagenNoticia">
+                    <img style="border-radius: 2%;" src="{% static 'assets/trabajo.jpg' %}" alt="">
+                </div>
+                <p class="texto">
+                    Si te encanta el cine y tienes conocimiento sobre como trabajar en este rubro, no olvides en contactarnos haciendo click aca abajo!
+                </p>
+                {% if user.is_authenticated %}
+                <a class="leerMas" href="{% url 'contacto' %}">Contactanos!</a>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="bannerCuidados">
+            <img src="{% static 'assets/banner-protocolo.jpg' %}" alt="">
+        </div>
+        <div class="compraEntradas">
+            <img src="{% static 'assets/banner-homemiboleteria.jpg' %}" alt="">
+        </div>
+</section>
+
+{% endblock %}

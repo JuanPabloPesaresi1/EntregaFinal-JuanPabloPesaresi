@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Formulario de Peliculas - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+
+<style>
+
+    input[type=text],[type=number], select {
+        width: 30%;
+        padding: 12px 5px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit]{
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover [type=number]:hover{
+        background-color: #45a049;
+    }
+    div.contenido {
+        border-radius: 5px;
+        padding: 20px;
+    }
+    footer{
+        width:100%;
+        bottom:0;
+        position:absolute;
+    }
+</style>
+
+<div class="contenido">
+    <form style="text-align: center;width:100%;" action="" method="post">
+        {% csrf_token %}
+        <h1 style="text-align: center;color:rgb(255, 102, 0);margin-top:5px;">Añadir Pelicula</h1>
+        <p>
+            <select name="nombrePelicula">
+                <option value="" selected="selected" disabled="disabled">Nombre</option>
+                <option>Dumbo</option>
+                <option>Harry Potter</option>
+                <option>Frozen</option>
+                <option>Rapidos y Furiosos 9</option>
+                <option>Sherk 2</option>
+                <option>Minions</option>
+                <option>Toy Story 3</option>
+                <option>Toy Story 4</option>
+                <option>Zootopia</option>
+                <option>Los Increibles 2</option>
+                <option>Mi Villano Favorito</option>
+                <option>Buscando a Nemo</option>
+                <option>Siniestro</option>
+            </select>
+        </p>
+
+            <p>
+                <select name="genero">
+                    <option value="" selected="selected" disabled="disabled">Genero</option>
+                    <option>Aventuras</option>
+                    <option>Ciencia Ficción</option>
+                    <option>Fantasía</option>
+                    <option>Musical</option>
+                    <option>Futuristas</option>
+                    <option>Deportivas</option>
+                    <option>Terror</option>
+                    <option>Accion</option>
+                    <option>Comedia</option>
+                    <option>Drama</option>
+                    <option>Suspenso</option>
+                    <option>Magia</option>
+                    <option>Infantil</option>
+                </select>
+            </p>
+        <p><input type="text" name="descripcion" minlength="5" max_length="250" placeholder="Descripcion de la pelicula"></p>
+            <p>
+                <select name="anioDeLanzamiento" placeholder="Nombre de la pelicula">
+                    <option value="" selected="selected" disabled="disabled">Año de lanzamiento</option>
+                    <option>2013</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                </select>
+            </p>
+                <input style="background-color:green;" type="submit" value="Añadir Pelicula">
+    </form>
+</div>
+{% endblock %}

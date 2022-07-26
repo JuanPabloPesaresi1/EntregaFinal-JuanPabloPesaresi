@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Buscar Producto
+{% endblock%}
+
+{% block contenidoPagina %}
+
+<h1 style="text-align: center;color:red">Busqueda de Producto</h1>
+<p style="text-align: center;">Buscar Producto: <form style="text-align: center;" action="" method="post">
+
+    {% csrf_token %}
+
+    <input type="text" name="producto">
+    <input type="submit" value="Buscar">
+
+
+</form></p>
+
+
+<p style="text-align: center;">Resultados: </p>
+<ul style="text-align: center;list-style-type: none;">
+    {% for cards in tienda %}
+        <li>{{cards.productos}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

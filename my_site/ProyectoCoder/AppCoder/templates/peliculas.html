@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Peliculas - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+
+
+<style>
+    tr:nth-child(even){background-color: #f2f2f2;}
+    tr:hover {background-color: #ddd;}
+    th{border: 1px solid #ddd;padding: 8px;padding-top: 12px;padding-bottom: 12px;text-align: center;background-color: #04AA6D;color: white;}
+    td{border: 1px solid #ddd;padding: 8px;text-align: center;}
+    .a{background-color: #04AA6D;border:none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;cursor: pointer;}
+    .flip-card {background-color: transparent;width: 350px;height: 250px;border: 1px solid #f1f1f1;perspective: 1000px;margin: auto;padding: auto;margin-top: 10px;}    
+    .flip-card-inner {position: relative;width: 100%;height: 100%;text-align: center;transition: transform 0.8s;transform-style: preserve-3d;}
+    .flip-card:hover .flip-card-inner {transform: rotateY(180deg);}     
+    .flip-card-front, .flip-card-back {position: absolute;width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;}
+    .flip-card-front {background-color: #bbb;color: black;}
+    .flip-card-back {background-color: rgb(255, 171, 74);color: white;transform: rotateY(180deg);}
+    .contenedor{display: flex;justify-content: center;flex-wrap: wrap;}
+    .desc{text-align: left;color: black;}
+</style >
+<h1 style="text-align: center;color:rgb(255, 102, 0);margin-top:20px;">CatalogoYa! </h1>
+<p style="text-align: center;"><form style="text-align: center;" action="" method="post">
+
+    {% csrf_token %}
+
+    <input style="border-radius: 20px;width:30%;text-align:center;" type="text" name="search" placeholder="Buscar pelicula">
+    <input style="border-radius: 20px;" type="submit" value="Buscar">
+
+
+</form></p>
+
+<section class="contenedor">
+    
+
+{% for pelis in peliculas %}
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    {% if pelis.nombrePelicula == "Dumbo" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/scale.jfif' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Harry Potter" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/harry-potter-1.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Frozen" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/Frozen-Reino-Unido-DVD-0-1.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Rapidos y Furiosos 9" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/L6IZHD6MXFHC3LXQ63NI4PSI4U.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Sherk 2" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/623222fd69867d8ddc8e7d3270cee275.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Minions" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/Los-Minions-Trailer-Español-Logo.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Toy Story 3" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/Toy_Story_3-691147043-large.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Zootopia" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/R-18121060-1621044556-9594.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Toy Story 4" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/Toy_Story_4-462756582-large.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Los Increibles 2" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/Los_Incre_bles_2-349945637-large.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Mi Villano Favorito" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/tileburnedin.jfif' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Buscando a Nemo" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/2398093.jpg' %}" alt="">
+                    {% endif %}
+                    {% if pelis.nombrePelicula == "Siniestro" %}
+                        <img style="width: 100%;height:100%;" src="{% static 'assets/Siniestro-127255424-mmed.jpg' %}" alt="">
+                    {% endif %}
+                </div>
+                <div class="flip-card-back">
+                    <h2 style="color: black;">{{pelis.nombrePelicula}}</h2>
+
+                    <h6 class="desc"><b>Genero</b>: {{pelis.genero}}</h6>
+                    <h6 class="desc"><b>Año</b>: {{pelis.anioDeLanzamiento}}</h6>
+                    <p class="desc" style="font-size: 13px;"><b> Descripcion</b>: {{pelis.descripcion}}</p>
+                    <a href="{% url 'peliculas_detail' pelis.id %}"><button>Ver</button></a>
+                    <button>Comprar Entrada</button>
+                    {% if user.is_staff %}
+                        <td><a style="color:red;font-size:13px;" href="{% url 'eliminar_peliculas' pelis.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-trash"></i> Eliminar</a></td>
+                        <td><a style="text-decoration:none;font-size:13px;" href="{% url 'modificar_peliculas' pelis.id %}" > <i class="bi bi-brush-fill"></i> Editar</a></td>
+                    {% endif %}
+                </div>
+            </div>
+        </div>   
+{% endfor %}
+
+
+</section>
+{% if user.is_staff %}
+    <div style="text-align:center ;margin-top:1%;">
+        <a class="a" href="{% url 'formulario_peliculas' %}">Añadir Pelicula</a>
+    </div>
+{% endif %}
+
+<!--     
+    <p style="text-align: center;">Buscar Pelicula: <form style="text-align: center;" action="" method="post">
+
+    {% csrf_token %}
+
+    <input style="border-radius: 20px;width:30%;" type="text" name="search" placeholder="Buscar pelicula">
+    <input style="border-radius: 20px;" type="submit" value="Buscar">
+
+
+    </form></p>
+    <div style="display: flex;justify-content:center;">
+        <table style="font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 30%;">
+            <thead>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Año</th>
+                <th>Comprar</th>
+                {% if user.is_staff %}
+                <th>Borrar</th>
+                <th>Editar</th>
+                {% endif %}
+            </thead>
+            
+            {% for pelis in peliculas %}
+            <tr>
+                <td>{{pelis.nombrePelicula}}</td>
+                <td>{{pelis.genero}}</td>
+                <td>{{pelis.anioDeLanzamiento}}</td>
+                <td><button style="width: 100px;">Comprar</button></td>
+                {% if user.is_staff %}
+                <td><a style="color:red;font-size:13px;" href="{% url 'eliminar_peliculas' pelis.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-trash"></i> Eliminar</a></td>
+                <td><a style="text-decoration:none;font-size:13px;" href="{% url 'modificar_peliculas' pelis.id %}" > <i class="bi bi-brush-fill"></i> Editar</a></td>
+                {% endif %}
+            </tr>
+    </div>    
+            {% endfor %}
+        </table>
+        
+</section>
+<div style="text-align:center ;margin-top:1%;">
+<a class="a" href="{% url 'formulario_peliculas' %}">Añadir Pelicula</a>
+</div> -->
+
+{% endblock %}

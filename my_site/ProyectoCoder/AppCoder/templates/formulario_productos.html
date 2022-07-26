@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Formulario Productos - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+<style>
+    input[type=text],[type=number], select {
+        width: 30%;
+        padding: 12px 5px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit]{
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover [type=number]:hover{
+        background-color: #45a049;
+    }
+    div.contenido {
+        border-radius: 5px;
+        padding: 20px;
+    }
+    footer{
+        width:100%;
+        bottom:0;
+        position:absolute;
+    }
+    </style>
+
+
+    <div class="contenido">
+        <form style="text-align: center;width:100%;" action="" method="post">
+            {% csrf_token %}
+            <h1 style="text-align: center;color:red;margin-top:5px;">Añadir Productos</h1>
+            <p>
+                <select name="productos">
+                    <option value="" selected="selected" disabled="disabled">Nombre</option>
+                    <option>Taza de Harry Potter</option>
+                    <option>Peluche de Harry Potter</option>
+                    <option>Varita de Harry Potter</option>
+                    <option>Capa de Harry Potter</option>
+                    <option>Lentes de Harry Potter</option>
+                    <option>Mochila de los Minions</option>
+                    <option>Lampara de los Minions</option>
+                    <option>Kit de mate de los Minions</option>
+                    <option>Pantuflas de los Minions</option>
+                    <option>Remera de los Minios</option>
+                    <option>FunkoPop de Goku Dragon Ball Z</option>
+                    <option>Mate impresión 3D Dragon Ball</option>
+                    <option>Remera de Dragon Ball Z</option>
+                    <option>Cuadro de Dragon Ball Z</option>
+                    <option>Mochila de Dragon Ball Z</option>
+                </select>
+            </p>
+            <p><input type="number" name="precio" placeholder="Ingrese el precio aqui"></p>
+                <input style="background-color:green;" type="submit" value="Añadir Producto">
+        </form>
+    </div>
+{% endblock %}

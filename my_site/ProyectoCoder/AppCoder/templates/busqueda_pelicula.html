@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Buscar Pelicula
+{% endblock%}
+
+{% block contenidoPagina %}
+
+<h1 style="text-align: center;color:red">Busqueda de peliculas</h1>
+<p style="text-align: center;">Buscar Pelicula: <form style="text-align: center;" action="" method="post">
+
+    {% csrf_token %}
+
+    <input type="text" name="pelicula">
+    <input type="submit" value="Buscar">
+
+
+</form></p>
+
+
+<p style="text-align: center;">Resultados: </p>
+<ul style="text-align: center;list-style-type: none;">
+    {% for pelis in peliculas %}
+        <li>{{pelis.nombrePelicula}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

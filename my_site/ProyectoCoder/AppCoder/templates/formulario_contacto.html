@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+TrabajoYa! - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+
+<style>
+
+    input[type=text],[type=number], select {
+        width: 30%;
+        padding: 12px 5px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit]{
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover [type=number]:hover{
+        background-color: #45a049;
+    }
+    div.contenido {
+        border-radius: 5px;
+        padding: 20px;
+    }
+    footer{
+        width:100%;
+        bottom:0;
+        position:absolute;
+    }
+</style>
+
+<div class="contenido">
+    <form style="text-align: center;width:100%;" action="" method="POST">
+        {% csrf_token %}
+        <h1 style="text-align: center;color:rgb(255, 102, 0);margin-top:5px;">ContactoYa!</h1>
+        
+        <p><input type="text" name="nombreCompleto" minlength="3" max_length="30" placeholder="Nombre Completo"></p>
+        
+        <p><input type="number" name="dni" minlength="7" max_length="8" placeholder="DNI"></p>
+
+        <p>
+            <select name="profesion" placeholder="Profesion">
+                <option value="" selected="selected" disabled="disabled">Profesion</option>
+                <option>Programador</option>
+                <option>Ingeniero</option>
+                <option>Diseñador</option>
+                <option>Técnico en computación</option>
+                <option>Cinematografo</option>
+                <option>Sin experiencia</option>
+            </select>
+        </p>
+        <p><input type="file" name="cv"></p>
+        <input style="background-color:green;" type="submit" value="Enviar">
+    </form>
+</div>
+{% endblock %}

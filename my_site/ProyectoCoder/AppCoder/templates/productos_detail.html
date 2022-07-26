@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Tienda - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+<style>
+    .contenido{box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 350px;
+        height: 100%;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        margin-top: 10px;}
+    .a{background-color: #04AA6D;border:none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;cursor: pointer;list-style: none;}
+</style>
+
+<title>Detalle Producto</title>
+</head>
+<body>
+    <div class="contenido">
+        <div class="imagenes">
+            {% if tienda.productos == "Taza de Harry Potter" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/D_NQ_NP_640765-MLA47901282172_102021-W.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Peluche de Harry Potter" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/warner-bros-peluche-harry-potter-25-cm_X7t2cnY.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Barita de Harry Potter" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/1000001135038.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Capa de Harry Potter" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/D_NQ_NP_763316-MLA46939628441_082021-W.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Lentes de Harry Potter" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/82d58d1f665271ac44b8e78f729e7268.jfif' %}">
+            {% endif%}
+            {% if tienda.productos == "Mochila de los Minions" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/D_NQ_NP_850425-MLA25426762239_032017-O.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Lampara de los Minions" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/D_NQ_NP_2X_786020-MLA43974898373_112020-F.webp' %}">
+            {% endif%}
+            {% if tienda.productos == "Kit de mate de los Minions" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/unknown_4.png' %}">
+            {% endif%}
+            {% if tienda.productos == "Pantuflas de los Minions" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/08d98bf9fd73d2190c30f6d756cf5692--slippers-minion.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Remera de los Minios" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/unknown_3.png' %}">
+            {% endif%}
+            {% if tienda.productos == "FunkoPop de Goku Dragon Ball Z" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/456c29a95aa449449a322b60a9f0ac001ef36ff7b59e456a058ac3251c21fc7f121779.png' %}">
+            {% endif%}
+            {% if tienda.productos == "Mate impresión 3D Dragon Ball" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/D_NQ_NP_704878-MLA45528432390_042021-W.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Remera de Dragon Ball Z" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/dragon-ball-goku-todo-blanco1-49543264991b1d13e215488844731199-640-0.jpg' %}">
+            {% endif%}
+            {% if tienda.productos == "Cuadro de Dragon Ball Z" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/unknown_5.png' %}">
+            {% endif%}
+            {% if tienda.productos == "Mochila de Dragon Ball Z" %}
+                <img style="width: 100%;height:100%;" src="{% static 'assets/mochila-dragon-ball-21-00a3b38b8283ab387716437373636785-1024-1024_KQTXSXH.jpg' %}">
+            {% endif%}
+        </div>
+        <p><b>Nombre: </b> {{ tienda.productos }} </p>
+        <p><b>Precio: </b> {{ tienda.precio }} </p>
+        <a class="a" href="{% url 'tienda' %}">Volver a la tienda </a>
+    </div>
+</body>
+
+{% endblock %}

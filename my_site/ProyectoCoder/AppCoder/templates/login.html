@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tituloPaginas %}  
+Login - CineYa!
+{% endblock%}
+
+{% block contenidoPagina %}
+<style>
+.contenido{display: flex;justify-content: center;}
+input{width: 80%;padding: 12px 5px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 4px;box-sizing: border-box;}
+button{width: 80%;background-color: #4CAF50;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;}
+form{width: 400px;height: 430px;;box-shadow: 0 0 40px rgba(8,7,16,0.6);border-radius: 10px;text-align: center;margin-top: 100px;}
+
+</style>
+
+<section>
+    <div class="contenido">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 style="margin-top: 25px;">Iniciar Sesión</h1>
+            {{ form.as_p }}
+            <button style="margin-top: 30px;" type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
